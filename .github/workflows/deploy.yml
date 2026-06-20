@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"] # Change to your default branch name if different
+    branches: "main" # Change to your default branch name if different
 
 permissions:
   contents: read
@@ -17,7 +17,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ itsunknown-2022-1.github.io }}
+      url: itsunknown-2022-1.github.io
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
