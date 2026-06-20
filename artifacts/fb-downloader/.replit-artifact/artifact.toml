@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Facebook Video Downloader"
+version = "1.0.0"
+id = "artifacts/fb-downloader"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24122
+
+[services.development]
+run = "pnpm --filter @workspace/fb-downloader run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/fb-downloader", "run", "build" ]
+publicDir = "artifacts/fb-downloader/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24122"
+BASE_PATH = "/"
